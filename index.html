@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Time Tracker</title>
+</head>
+
+<body>
+    <h1>Calendário</h1>
+    <h2 id="timestamp">timestamp: 0</h2>
+    <h2 id="calendar">Data: 00/00/00</h2>
+    <h2 id='hour'>Horas: 00:00:00</h2>
+    <div>
+        <button type='button' id="buttonSixSec">+6s</button>
+        <button type='button' id="buttonOneMin">+1min</button>
+        <button type='button' id="buttonTenMin">+10min</button>
+        <button type='button' id="buttonHour">+1h</button>
+        <button type='button' id="buttonHalfDay">+12h</button>
+        <button type='button' id="buttonDay">+1 dia</button>
+    </div>
+    <br />
+    <div>
+        <button type='button' id="buttonWeek">+1 semana</button>
+        <button type='button' id="buttonMonth">+1 mês</button>
+        <button type='button' id="buttonHalfYear">+6 meses</button>
+        <button type='button' id="buttonYear">+1 ano</button>
+    </div>
+    <br />
+    <div>
+        <button type='button' id="resetDay">reset Day</button>
+    </div>
+    <br />
+    <div>
+        <h3>Alterar data inicial</h3>
+        <form>
+            <div>
+                <input type="text" placeholder="dia">
+                <input type="text" placeholder="mês">
+                <input type="text" placeholder="ano">
+            </div>
+            <br />
+            <button type='button'>Resetar calendário</button>
+        </form>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
