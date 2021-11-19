@@ -2,6 +2,10 @@ const calendar = document.querySelector('#calendar');
 const hour = document.querySelector("#hour")
 const timeStamp = document.querySelector("#timestamp")
 const resetDay = document.querySelector("#resetDay")
+const day = document.querySelector('#day');
+const month = document.querySelector('#month');
+const year = document.querySelector('#year');
+const formBtn = document.querySelector('#formbtn');
 
 calendar.innerText = dateFormated();
 hour.innerText = hoursFormated();
@@ -28,19 +32,52 @@ actionButtons.forEach(({dom, value}) => {
         hour.innerText = hoursFormated();
         timeStamp.innerText = `timestamp: ${timeStampTotal}`; 
 
-        console.log({
-            sec: dateObject().sec,
-            min: dateObject().min,
-            hour: dateObject().hour,
-        })
-
         resetValue = dateObject().sec + dateObject().min * minInSec + dateObject().hour * hourInSec;
     })
 })
 
 resetDay.addEventListener('click', () => {
-    advanceDate(-resetValue)
-    resetValue = 0;
+    if(resetValue <= dayInSec) {
+        advanceDate(-resetValue)
+        resetValue = 0;
+        calendar.innerText = dateFormated();
+        hour.innerText = hoursFormated();
+        timeStamp.innerText = `timestamp: ${timeStampTotal}`; 
+    } else {
+        alert('não é possível resetar o dia')
+        console.log({resetValue, timeStampTotal})
+    }
+})
+
+
+formBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let dayVal = +day.value;
+    let monthVal = +month.value;
+    let yearVal = +year.value;
+
+    timeStampTotal = 0;
+
+    if(dayVal >= 1 && dayVal <= 30) {
+        initDate.day = dayVal;
+    } else {
+        alert('O dia digitado está fora do alcance')
+        day.value = ''
+    }
+    if(monthVal >= 1 && monthVal <= 12) {
+        initDate.month = monthVal;
+    } else {
+        alert('O mês digitado está fora do alcance')
+        month.value = ''
+    }
+    if(yearVal >= 1) {
+        initDate.year = yearVal;
+    } else {
+        alert('O ano digitado está fora do alcance')
+        year.value = ''
+    }
+
     calendar.innerText = dateFormated();
     hour.innerText = hoursFormated();
     timeStamp.innerText = `timestamp: ${timeStampTotal}`; 

@@ -8,7 +8,7 @@ let timeStampTotal = 0;
 let resetValue = 0;
 
 let initDate = {
-    year: 80,
+    year: 0,
     month: 1,
     day: 1,
     hour: 0,
@@ -114,3 +114,4 @@ const hoursFormated = () => {
     const {hourFormated, minFormated, secFormated} = dateObject()
     return `${hourFormated}:${minFormated}:${secFormated}`
 }
+
